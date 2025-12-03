@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Presentation Viewer (placeholder)</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#020617;color:#fff;font-family:system-ui,Helvetica,Arial,sans-serif}</style>
+</head>
+<body>
+  <div style="max-width:1000px;width:90%;">
+    <h1 style="text-align:center">Presentation Viewer (placeholder)</h1>
+    <p style="text-align:center">This is a placeholder page for your exported Google AI Studio app. Replace the content of this file with your exported `index.html` and assets, or upload the exported site into the repository's `docs/` directory to publish.</p>
+
+    <!-- Embedded standalone viewer (uses empty PDF data URL placeholder) -->
+    <div id="viewer-root"></div>
+
+    <script>
+      // Minimal example: renders a blank PDF (placeholder). Replace with your exported site.
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+      const pdfData = 'data:application/pdf;base64,'; // replace with real data URL
+      const loadingTask = pdfjsLib.getDocument(pdfData);
+      loadingTask.promise.then(function(pdf) {
+        const root = document.getElementById('viewer-root');
+        root.innerHTML = '<p style="text-align:center;color:#cbd5e1">PDF loaded with ' + pdf.numPages + ' pages (placeholder)</p>';
+      }).catch(function(){
+        // ignore errors for placeholder
+      });
+    </script>
+  </div>
+</body>
+</html>
